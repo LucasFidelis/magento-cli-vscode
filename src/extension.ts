@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { MagentoCommandTreeItem, MagentoCommandsProvider } from './MagentoCommandsProvider';
+import { MagentoFavoritesProvider } from './MagentoFavoritesProvider';
 
 export function activate(context: vscode.ExtensionContext) {	
 	let rootPath;
@@ -9,11 +10,22 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Required workspace!');
 		return;
 	}
-	
+
 	let magentoCommandsObj = new MagentoCommandsProvider(rootPath);
+	let magentoFavoritesObj = new MagentoFavoritesProvider(
+		rootPath, magentoCommandsObj, 
+		context.globalStorageUri.path
+	);
 	vscode.window.registerTreeDataProvider("magentoCommands", magentoCommandsObj);
+	vscode.window.registerTreeDataProvider("magentoCommandFavorites", magentoFavoritesObj);
 	vscode.commands.registerCommand('shell.runCommand', (item: MagentoCommandTreeItem) => {
 		execCommand(item.cmdStr);
+	});
+	vscode.commands.registerCommand('add.favorite', (item: MagentoCommandTreeItem) => {
+		magentoFavoritesObj.addCommandAsFavorite(item);
+	});
+	vscode.commands.registerCommand('delete.favorite', (item: MagentoCommandTreeItem) => {
+		magentoFavoritesObj.deleteCommandFromFavorites(item);
 	});
 }
 

@@ -32,6 +32,12 @@
       ]
     },
     "views": {
+      "explorer": [
+        {
+          "id": "magentoCommandFavorites",
+          "name": "Magento CLI Favorites"
+        }
+      ],
       "magento": [
           {
               "id": "magentoCommands",
@@ -48,12 +54,43 @@
           "light": "resources/light/run.svg",
           "dark": "resources/dark/run.svg"
         }
+      },
+      {
+        "command": "add.favorite",
+        "title": "Add to Favorites",
+        "icon": {
+          "light": "resources/light/star-empty.svg",
+          "dark": "resources/light/star-empty.svg"
+        }
+      },
+      {
+        "command": "delete.favorite",
+        "title": "Delete from Favorites",
+        "icon": {
+          "light": "resources/light/trash.svg",
+          "dark": "resources/light/trash.svg"
+        }
       }
     ],
     "menus": {
       "view/item/context": [
         {
           "command": "shell.runCommand",
+          "when": "view == magentoCommands && viewItem == command ",
+          "group": "inline"
+        },
+        {
+          "command": "shell.runCommand",
+          "when": "view == magentoCommandFavorites",
+          "group": "inline"
+        },
+        {
+          "command": "delete.favorite",
+          "when": "view == magentoCommandFavorites",
+          "group": "inline"
+        },
+        {
+          "command": "add.favorite",
           "when": "view == magentoCommands && viewItem == command",
           "group": "inline"
         }

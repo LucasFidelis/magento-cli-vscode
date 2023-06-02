@@ -48,7 +48,7 @@ export class MagentoCommandsProvider implements vscode.TreeDataProvider<MagentoC
     return Promise.resolve([]);
   }
 
-  private getCommands() {
+  getCommands() {
     return JSON.parse(fs.readFileSync(path.resolve(__dirname, 'commands.json'), 'utf-8')); 
   }
 }
