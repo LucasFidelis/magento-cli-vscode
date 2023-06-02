@@ -9,6 +9,10 @@
   },
   "icon": "images/icon.png",
   "publisher": "LucasFidelis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucasFidelis/magento-cli-vscode.git"
+  },
   "engines": {
     "vscode": "^1.78.0"
   },
