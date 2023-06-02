@@ -2,7 +2,7 @@
   "name": "magento-cli",
   "displayName": "Magento CLI",
   "description": "Magento CLI Extension",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage":"https://github.com/LucasFidelis/magento-cli-vscode/blob/main/README.md",
 	"author": {
     "name": "Lucas Fidélis"

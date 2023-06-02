@@ -5,10 +5,9 @@ That extension helps you to run all commands from Magento CLI tool in your VSCod
 ## Features
 - Run all commands
 - Docker support
-- Add custom commands [To Do]
+- Add commands as favorites 
 
 ## Settings
-
 The config below is necessary to run the commands:
 
 - Localhost
@@ -27,3 +26,6 @@ The config below is necessary to run the commands:
     "magentoCommand.magento.root": "/your/magento/root"
 }
 ```
+
+## To Do
+- Add custom commands
